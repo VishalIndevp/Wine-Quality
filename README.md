@@ -1,171 +1,159 @@
-# 🍷 Wine Quality Prediction (Machine Learning + Streamlit)
+# 🍷 Wine Quality Predictor
 
-## 📌 Project Overview
-
-This project predicts the **quality score of wine** using machine learning based on its **chemical properties**.
-The model analyzes features such as acidity, sugar level, alcohol, sulphates, and sulfur dioxide to estimate the wine quality.
-
-The final model is deployed with a **Streamlit web application**, allowing users to enter wine characteristics and get an instant prediction.
+A **Streamlit web application** that predicts wine quality scores using a Gradient Boosting machine learning model. Enter the chemical properties of any wine sample and receive an instant quality prediction with a visual rating.
 
 ---
 
-## 🎯 Problem Statement
+## ✨ Features
 
-Wine quality is usually determined through **sensory evaluation by experts**, which can be expensive and time-consuming.
-
-This project uses **machine learning** to predict wine quality automatically from measurable chemical attributes.
-
----
-
-## 📊 Dataset Features
-
-| Feature              | Description                                      |
-| -------------------- | ------------------------------------------------ |
-| type                 | Type of wine (Red / White)                       |
-| fixed acidity        | Non-volatile acids that contribute to wine taste |
-| volatile acidity     | Acetic acid content (vinegar taste indicator)    |
-| citric acid          | Adds freshness and flavor                        |
-| residual sugar       | Sugar remaining after fermentation               |
-| chlorides            | Salt content in wine                             |
-| free sulfur dioxide  | Free SO₂ preventing microbial growth             |
-| total sulfur dioxide | Total amount of SO₂ in wine                      |
-| density              | Density of the wine                              |
-| pH                   | Acidity strength                                 |
-| sulphates            | Preservative compound                            |
-| alcohol              | Alcohol percentage                               |
-| quality              | Wine quality score (Target Variable)             |
+- **Instant Predictions** — Powered by a pre-trained Gradient Boosting model
+- **Supports Red & White Wine** — Handles both wine types in one unified interface
+- **Rich Dark UI** — Elegant wine-themed design with gold accents and hover effects
+- **Animated Result Card** — Visual score display with star rating and quality badge
+- **Grouped Input Sections** — Inputs organized by chemical category for easy entry
 
 ---
 
-## ⚙️ Data Preprocessing
+## 🖥️ Demo
 
-The following preprocessing steps were applied:
+![Wine Quality Predictor UI](https://via.placeholder.com/800x450.png?text=Wine+Quality+Predictor+Screenshot)
 
-* Missing value handling
-* Outlier detection and treatment
-* Encoding categorical feature (`type`)
-* Train–test split
-
-Since tree-based models were used, **feature scaling was not required**.
+> Replace with an actual screenshot of your running app.
 
 ---
 
-## 🤖 Machine Learning Models Tested
+## 🚀 Getting Started
 
-Several models were trained and evaluated:
+### Prerequisites
 
-* Linear Regression
-* Decision Tree
-* Random Forest
-* Gradient Boosting
-* XGBoost
-* Logistic Regression
-* SVM
-* K-Nearest Neighbors
-* Naive Bayes
+- Python 3.8+
+- pip
 
-### 🏆 Best Model
+### Installation
 
-**Gradient Boosting Regressor** achieved the best performance and was selected for deployment.
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/wine-quality-predictor.git
+cd wine-quality-predictor
 
-Evaluation metrics used:
-
-* **R² Score**
-* **RMSE (Root Mean Squared Error)**
-
----
-
-## 🚀 Streamlit Web Application
-
-A **Streamlit UI** was built where users can:
-
-1. Select wine type (Red / White)
-2. Enter chemical properties
-3. Click **Predict Quality**
-4. Get the predicted wine quality score instantly
-
----
-
-## 🖥️ Project Structure
-
-```
-wine-quality-project
-│
-├── app.py                # Streamlit web application
-├── model_GB.pkl          # Trained Gradient Boosting model
-├── model_columns.pkl     # Feature column order
-├── requirements.txt      # Python dependencies
-└── README.md             # Project documentation
-```
-
----
-
-## 📦 Installation
-
-Clone the repository:
-
-```
-git clone https://github.com/your-username/wine-quality-prediction.git
-cd wine-quality-prediction
-```
-
-Install dependencies:
-
-```
+# 2. Install dependencies
 pip install -r requirements.txt
-```
 
-Run the Streamlit application:
-
-```
+# 3. Run the app
 streamlit run app.py
 ```
 
----
-
-## 📈 Example Prediction
-
-After entering wine attributes such as acidity, alcohol, and sugar level, the model predicts a **quality score between 3 and 9**.
-
-The app also classifies the result as:
-
-* 🔴 Low Quality Wine
-* 🟡 Average Quality Wine
-* 🟢 Good Quality Wine
+The app will open in your browser at `http://localhost:8501`
 
 ---
 
-## 🧠 Technologies Used
+## 📁 Project Structure
 
-* Python
-* Pandas
-* NumPy
-* Scikit-learn
-* XGBoost
-* Joblib
-* Streamlit
-
----
-
-## 👨‍💻 Author
-
-**Vishal Singh**
-Data Analytics & Machine Learning Enthusiast
-
-LinkedIn: https://www.linkedin.com/in/vishal-singh-here/
-GitHub: https://github.com/VishalIndevp
+```
+wine-quality-predictor/
+│
+├── app.py                 # Main Streamlit application
+├── model_GB.pkl           # Pre-trained Gradient Boosting model
+├── model_columns.pkl      # Feature column names for input alignment
+├── requirements.txt       # Python dependencies
+└── README.md              # Project documentation
+```
 
 ---
 
-## ⭐ Future Improvements
+## 📦 Requirements
 
-* Add feature importance visualization
-* Deploy the app on **Streamlit Cloud**
-* Implement hyperparameter tuning
-* Improve UI with interactive charts
+```txt
+streamlit
+pandas
+scikit-learn
+joblib
+```
+
+Install all at once:
+
+```bash
+pip install streamlit pandas scikit-learn joblib
+```
 
 ---
 
-## 📜 License
+## 🧪 Input Features
 
-This project is open-source and available under the MIT License.
+The model uses the following physicochemical properties as input:
+
+| Feature | Description | Typical Range |
+|---|---|---|
+| **Wine Type** | Red or White | — |
+| **Fixed Acidity** | Tartaric acid concentration | 4.0 – 16.0 |
+| **Volatile Acidity** | Acetic acid (vinegar) level | 0.1 – 1.6 |
+| **Citric Acid** | Freshness-contributing acid | 0.0 – 1.0 |
+| **Residual Sugar** | Sugar remaining after fermentation | 0.9 – 65.0 |
+| **Chlorides** | Salt content | 0.01 – 0.6 |
+| **Free Sulfur Dioxide** | Free SO₂ (preservative) | 1 – 289 |
+| **Total Sulfur Dioxide** | Total SO₂ | 6 – 440 |
+| **Density** | Wine density (g/cm³) | 0.990 – 1.004 |
+| **pH** | Acidity/alkalinity level | 2.7 – 4.0 |
+| **Sulphates** | Antimicrobial additive | 0.2 – 2.0 |
+| **Alcohol** | Alcohol by volume (%) | 8.0 – 15.0 |
+
+---
+
+## 📊 Model Details
+
+| Property | Value |
+|---|---|
+| **Algorithm** | Gradient Boosting Regressor |
+| **Training Data** | UCI Wine Quality Dataset |
+| **Output** | Quality score (0–10 scale) |
+| **File** | `model_GB.pkl` |
+
+### Quality Score Interpretation
+
+| Score | Rating | Badge |
+|---|---|---|
+| **≥ 7** | Excellent Quality | 🟢 |
+| **5 – 6.9** | Average Quality | 🟡 |
+| **< 5** | Low Quality | 🔴 |
+
+---
+
+## 🎨 UI Highlights
+
+The interface features a custom dark wine-themed design:
+
+- **Deep burgundy gradient background** with rich red tones
+- **Gold accent palette** (`#c9a96e`) on labels, borders, and headings
+- **Hover effects** on all input fields — glowing border on mouse-over
+- **Animated prediction card** — fades in with score, colored divider, and ★ star rating
+- **Playfair Display serif** font for headings; Inter for body text
+
+---
+
+## 📖 Dataset
+
+This model was trained on the [UCI Wine Quality Dataset](https://archive.ics.uci.edu/ml/datasets/wine+quality):
+
+> P. Cortez, A. Cerdeira, F. Almeida, T. Matos and J. Reis. *Modeling wine preferences by data mining from physicochemical properties.* Decision Support Systems, 2009.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See `LICENSE` for details.
+
+---
+
+<p align="center">Made with 🍷 and Python</p>
